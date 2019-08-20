@@ -1,10 +1,8 @@
 package com.example.service;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.annotation.Resource;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
