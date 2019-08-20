@@ -8,11 +8,5 @@ import javax.annotation.Resource;
 
 @Service
 public class UserService extends AbsBaseService<User> {
-    @Resource
-    protected UserMapper mapper;
 
-    @Override
-    public void initMapper() {
-        setMapper(mapper);
-    }
 }

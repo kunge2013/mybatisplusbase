@@ -2,20 +2,22 @@ package com.example.service;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.Resource;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-public  abstract class AbsBaseService<T> implements IBaseService , InitializingBean {
+public  abstract class AbsBaseService<T> implements IBaseService {
 
+    @Autowired
     protected BaseMapper<T> mapper;
 
-    public void setMapper(BaseMapper<T> mapper) {
+    public void superMapper(BaseMapper<T> mapper) {
         this.mapper = mapper;
     }
 
-    public abstract void initMapper();
 
     @Override
     public int insert(Object entity) {
@@ -42,8 +44,4 @@ public  abstract class AbsBaseService<T> implements IBaseService , InitializingB
         return mapper.selectByMap(columnMap);
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        initMapper();
-    }
 }
