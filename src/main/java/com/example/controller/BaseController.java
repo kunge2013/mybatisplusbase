@@ -11,6 +11,7 @@ public abstract class BaseController<T> {
     protected IBaseService<T> service;
 
     @RequestMapping(value = "/pageList",method = RequestMethod.POST)
+    @ResponseBody
     public ResponseBean<Page<T>> queryForPage(Page page) {
         return ResponseBean.build((Page<T>) service.page(page),ResponseBean.SUCCESS) ;
     }
@@ -21,8 +22,8 @@ public abstract class BaseController<T> {
      * @return
      */
     @ResponseBody
-    @PostMapping(name="/save")
-    public  ResponseBean<Boolean> save(T entity) {
+    @RequestMapping(value = "/save")
+    public  ResponseBean<Boolean> save(@RequestBody T entity) {
         return  ResponseBean.build(service.save(entity), ResponseBean.SUCCESS);
     }
 //

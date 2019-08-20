@@ -1,12 +1,17 @@
 package com.example.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
 /**
  * @Author:0xOO
  * @Date: 2018/9/26 0026
  * @Time: 14:39
  */
+@TableName("user_info")
 public class User {
-
+    @TableId(type = IdType.AUTO)
     private Integer id;
 
     private String userName;
