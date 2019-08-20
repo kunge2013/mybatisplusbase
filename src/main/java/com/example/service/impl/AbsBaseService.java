@@ -1,6 +1,7 @@
-package com.example.service;
+package com.example.service.impl;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.service.IBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
