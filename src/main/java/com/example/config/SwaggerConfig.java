@@ -17,11 +17,11 @@ import java.io.IOException;
 public class SwaggerConfig {
     @Bean
     public Docket createRestApi() throws IOException {
-        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select().apis(RequestHandlerSelectors.basePackage("com.shiyan.demo")).paths(PathSelectors.any()).build();
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select().apis(RequestHandlerSelectors.basePackage("com.example.controller")).paths(PathSelectors.any()).build();
     }
 
     private ApiInfo apiInfo() throws IOException {
-        return new ApiInfoBuilder().title("誓言--------").termsOfServiceUrl("http://data.***.com/").contact("***").version("0.0.1").build();
+        return new ApiInfoBuilder().title("fk--------").termsOfServiceUrl("http://data.***.com/").contact("***").version("0.0.1").build();
     }
 
 
