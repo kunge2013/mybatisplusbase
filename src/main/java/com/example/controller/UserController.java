@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
-public class EmployeeController extends BaseController<User> {
+public class UserController extends BaseController<User> {
 
     @Autowired
     private UserService userService;
