@@ -15,7 +15,6 @@ public class UserController extends BaseController<User> {
     @Autowired
     private IUserService userService;
 
-
     @RequestMapping(value = "/selectObj",method = RequestMethod.GET)
     public User selectObj() {
         return userService.sel(1);

@@ -2,20 +2,16 @@ package com.example.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.ResponseBean;
 import com.example.service.IBaseService;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
-import java.util.Collection;
 
 public abstract class BaseController<T> {
 
     @Resource
     protected IBaseService<T> service;
 
-    @ResponseBody
-    @PostMapping(name="/pageList")
-    public ResponseBean<Page<T>> queryForPage(Page<T> page) {
+    @RequestMapping(value = "/pageList",method = RequestMethod.POST)
+    public ResponseBean<Page<T>> queryForPage(Page page) {
         return ResponseBean.build((Page<T>) service.page(page),ResponseBean.SUCCESS) ;
     }
 
@@ -26,40 +22,40 @@ public abstract class BaseController<T> {
      */
     @ResponseBody
     @PostMapping(name="/save")
-    public ResponseBean<Boolean> save(T entity) {
-        return  ResponseBean.build(service.save(entity),ResponseBean.SUCCESS);
+    public  ResponseBean<Boolean> save(T entity) {
+        return  ResponseBean.build(service.save(entity), ResponseBean.SUCCESS);
     }
-
-    /**
-     * 批量保存
-     * @param entityList
-     * @return
-     */
-    @ResponseBody
-    @PostMapping(name="/saveBatch")
-    public ResponseBean<Boolean> saveBatch(Collection<T> entityList) {
-        return  ResponseBean.build(service.saveBatch(entityList),ResponseBean.SUCCESS);
-    }
-
-    /**
-     * 根据ID修改
-     * @param entity 对象
-     * @return boolean
-     */
-    @ResponseBody
-    @PostMapping(name="/updateById")
-    public ResponseBean<Boolean> updateById(T entity) {
-        return  ResponseBean.build(service.updateById(entity),ResponseBean.SUCCESS);
-    }
-
-    /**
-     * 根据ID删除
-     * @param id
-     * @return
-     */
-    @ResponseBody
-    @DeleteMapping(name = "removeById")
-    public ResponseBean<Boolean> removeById(Long id) {
-        return  ResponseBean.build(service.removeById(id), ResponseBean.SUCCESS);
-    }
+//
+//    /**
+//     * 批量保存
+//     * @param entityList
+//     * @return
+//     */
+//    @ResponseBody
+//    @PostMapping(name="/saveBatch")
+//    public ResponseBean<Boolean> saveBatch(Collection<T> entityList) {
+//        return  ResponseBean.build(service.saveBatch(entityList), ResponseBean.SUCCESS);
+//    }
+//
+//    /**
+//     * 根据ID修改
+//     * @param entity 对象
+//     * @return boolean
+//     */
+//    @ResponseBody
+//    @PostMapping(name="/updateById")
+//    public ResponseBean<Boolean> updateById(T entity) {
+//        return  ResponseBean.build(service.updateById(entity),ResponseBean.SUCCESS);
+//    }
+//
+//    /**
+//     * 根据ID删除
+//     * @param id
+//     * @return
+//     */
+//    @ResponseBody
+//    @DeleteMapping(name = "removeById")
+//    public ResponseBean<Boolean> removeById(Long id) {
+//        return  ResponseBean.build(service.removeById(id), ResponseBean.SUCCESS);
+//    }
 }

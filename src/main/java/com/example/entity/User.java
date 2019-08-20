@@ -1,7 +1,5 @@
 package com.example.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-
 /**
  * @Author:0xOO
  * @Date: 2018/9/26 0026
