@@ -21,8 +21,8 @@ public abstract class BaseController<T> {
      * @return
      */
     @ResponseBody
-    @PostMapping(name="/save")
-    public  ResponseBean<Boolean> save(T entity) {
+    @RequestMapping(value = "/save",method = RequestMethod.POST)
+    public  ResponseBean<Boolean> save(@RequestBody T entity) {
         return  ResponseBean.build(service.save(entity), ResponseBean.SUCCESS);
     }
 //
